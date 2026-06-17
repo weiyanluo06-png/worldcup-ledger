@@ -1,7 +1,7 @@
 // 1. 在 Google 表格里点：文件 -> 分享 -> 发布到网络。
 // 2. 选择工作表，格式选择 CSV。
 // 3. 把发布后的 CSV 链接粘贴到下面的引号里。
-const SHEET_CSV_URL = "";
+const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSIqDJTQ8lO5c2gWltauVvbXJzFh69_JU0lblyxuArhfyh2fCk5Ay7GlWwFNllmnhHR3VJQzbNON0yl/pub?gid=0&single=true&output=csv";
 
 // 可选：把你的 Google 表格编辑链接粘贴到这里，页面右上角会显示“打开表格”。
 const SHEET_EDIT_URL = "";
