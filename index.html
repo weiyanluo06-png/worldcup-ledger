@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>世界杯体彩盈亏记录</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app">
+      <section class="hero" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">World Cup Ledger</p>
+          <h1 id="page-title">世界杯体彩盈亏记录</h1>
+          <p class="subtitle">数据来自 Google 表格，打开页面自动汇总。</p>
+        </div>
+        <div class="hero-actions">
+          <button id="refreshBtn" class="ghost-button" type="button">刷新数据</button>
+          <a id="sheetLink" class="ghost-button" href="#" target="_blank" rel="noreferrer">打开表格</a>
+        </div>
+      </section>
+
+      <section class="summary-grid" aria-label="盈亏汇总">
+        <article class="metric">
+          <span>总投入</span>
+          <strong id="totalStake">¥0.00</strong>
+        </article>
+        <article class="metric">
+          <span>总返奖</span>
+          <strong id="totalReturn">¥0.00</strong>
+        </article>
+        <article class="metric highlight">
+          <span>累计盈亏</span>
+          <strong id="totalProfit">¥0.00</strong>
+        </article>
+        <article class="metric">
+          <span>记录天数</span>
+          <strong id="recordDays">0</strong>
+        </article>
+      </section>
+
+      <section class="workspace">
+        <aside class="sheet-panel" aria-labelledby="sheet-title">
+          <h2 id="sheet-title">每日更新方式</h2>
+          <p>以后不用改网页。你只需要在 Google 表格里新增一行，页面会读取最新数据。</p>
+          <div class="column-list" aria-label="表格列名">
+            <span>日期</span>
+            <span>投入</span>
+            <span>返奖</span>
+            <span>场次</span>
+            <span>备注</span>
+          </div>
+          <p id="sourceStatus" class="source-status">正在读取表格数据...</p>
+        </aside>
+
+        <section class="records-panel" aria-labelledby="records-title">
+          <div class="panel-header">
+            <div>
+              <h2 id="records-title">记录明细</h2>
+              <p id="statusText">正在加载。</p>
+            </div>
+            <select id="sortSelect" aria-label="排序方式">
+              <option value="date-desc">日期从新到旧</option>
+              <option value="date-asc">日期从旧到新</option>
+              <option value="profit-desc">盈利最高</option>
+              <option value="profit-asc">亏损最高</option>
+            </select>
+          </div>
+
+          <div id="recordsList" class="records-list"></div>
+        </section>
+      </section>
+    </main>
+
+    <template id="recordTemplate">
+      <article class="record-card">
+        <div class="record-main">
+          <div>
+            <time class="record-date"></time>
+            <h3 class="record-match"></h3>
+          </div>
+          <strong class="record-profit"></strong>
+        </div>
+        <dl class="record-numbers">
+          <div>
+            <dt>投入</dt>
+            <dd class="record-stake"></dd>
+          </div>
+          <div>
+            <dt>返奖</dt>
+            <dd class="record-return"></dd>
+          </div>
+        </dl>
+        <p class="record-note"></p>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
